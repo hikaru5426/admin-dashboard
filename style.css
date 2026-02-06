@@ -104,7 +104,8 @@ button{
     height:2em;
 }
 
-#top-header .avatar{
+#top-header .avatar,
+.trending .avatar{
     height:3em;
 }
 
@@ -185,7 +186,8 @@ button{
 }
 
 .card p,
-.announcements p{
+.announcements p,
+p[class="hashtag"] + p{
     color:#747474;
 }
 
@@ -220,10 +222,35 @@ button{
     background-color:grey;
 }
 
+.announcements h3{
+    font-size:1em;
+}
+
 .announcements p{
     font-size:0.8em;
 }
 
 .trending{
     grid-area: 3 / 3 / 4 / 4;
+    display:grid;
+    grid-template:3em 1fr / 1fr;
+}
+
+.trending > div{
+    display:grid;
+    grid-template: repeat(4, 1fr) / 1fr;
+    padding:20px;
+}
+
+.trending > div > div{
+    display:grid;
+    grid-template:1fr / 1fr 3fr;
+    align-self:center;
+    
+}
+
+div:has(>p[class="hashtag"]){
+    display:flex;
+    flex-direction:column;
+    justify-content:space-evenly;
 }
